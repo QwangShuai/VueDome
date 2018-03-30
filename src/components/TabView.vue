@@ -4,18 +4,6 @@
       <div :class="[item.className,item.isClick ? item.dclassName : '']"></div>
       <p :class="{'is_click': item.isClick }">{{item.name}}</p>
     </div>
-    <!--<div class="tab-item">-->
-    <!--<div class="item-icon1"></div>-->
-    <!--<p>{{msg.two}}</p>-->
-    <!--</div>-->
-    <!--<div class="tab-item">-->
-    <!--<div class="item-icon2"></div>-->
-    <!--<p>{{msg.three}}</p>-->
-    <!--</div>-->
-    <!--<div class="tab-item">-->
-    <!--<div class="item-icon3"></div>-->
-    <!--<p>{{msg.four}}</p>-->
-    <!--</div>-->
   </div>
 </template>
 
@@ -24,10 +12,12 @@
     name: 'TabView',
     data() {
       return {
-        items: [{name: '首页',isClick:1,className:'item0',dclassName:'item-click0'},
-          {name: '订单',isClick:0,className:'item1',dclassName:'item-click1'},
-          {name: '钱包',isClick:0,className:'item2',dclassName:'item-click2'},
-          {name: '个人中心',isClick:0,className:'item3',dclassName:'item-click3'}]
+        items: [
+          {name: '首页',isClick:1,className:'item0',dclassName:'item-click0',home:'1'},
+          {name: '订单',isClick:0,className:'item1',dclassName:'item-click1',bill:'1'},
+          {name: '钱包',isClick:0,className:'item2',dclassName:'item-click2',wallet:'1'},
+          {name: '个人中心',isClick:0,className:'item3',dclassName:'item-click3',person:'1'}
+          ]
       }
     },
     methods: {
@@ -39,16 +29,30 @@
         console.log(position)
         switch (position) {
           case 0:
+            this.$router.push('/home');
             break;
           case 1:
+            this.$router.push('/bill');
             break;
           case 2:
+            this.$router.push('/wallet');
             break
           case 3:
+            this.$router.push('/person');
             break;
         }
       }
-    }
+    },
+    mounted: function () {
+      var route=this.$route.path;
+      var tag=route.slice(1,route.length);
+      this.items.forEach(function (obj) {
+        obj.isClick = 0;
+        if (obj[tag]) {
+          obj.isClick = 1;
+        }
+      });
+    },
   }
 </script>
 
