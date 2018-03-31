@@ -13,19 +13,19 @@
     data() {
       return {
         items: [
-          {name: '首页',isClick:1,className:'item0',dclassName:'item-click0',home:'1'},
-          {name: '订单',isClick:0,className:'item1',dclassName:'item-click1',bill:'1'},
-          {name: '钱包',isClick:0,className:'item2',dclassName:'item-click2',wallet:'1'},
-          {name: '个人中心',isClick:0,className:'item3',dclassName:'item-click3',person:'1'}
-          ]
+          {name: '首页', isClick: 1, className: 'item0', dclassName: 'item-click0', home: '1'},
+          {name: '订单', isClick: 0, className: 'item1', dclassName: 'item-click1', bill: '1'},
+          {name: '钱包', isClick: 0, className: 'item2', dclassName: 'item-click2', wallet: '1'},
+          {name: '个人中心', isClick: 0, className: 'item3', dclassName: 'item-click3', person: '1'}
+        ]
       }
     },
     methods: {
       itemClick(position) {
         this.items.forEach(function (obj) {
-          obj.isClick=0;
+          obj.isClick = 0;
         });
-        this.items[position].isClick=1;
+        this.items[position].isClick = 1;
         console.log(position)
         switch (position) {
           case 0:
@@ -44,8 +44,9 @@
       }
     },
     mounted: function () {
-      var route=this.$route.path;
-      var tag=route.slice(1,route.length);
+      var route = this.$route.path;
+      route = route === '/' ? '/home' : route;
+      var tag = route.slice(1, route.length);
       this.items.forEach(function (obj) {
         obj.isClick = 0;
         if (obj[tag]) {
@@ -63,6 +64,7 @@
     height: 1.2rem;
     display: flex;
     border-top: solid #ccc 1px;
+    background-color: #FFFFFF;
   }
 
   .tab-view .tab-item {
@@ -80,7 +82,8 @@
     background: url("../../static/imgas/home-n.png") center no-repeat;
     background-size: contain;
   }
-  .tab-view .tab-item .item-click0{
+
+  .tab-view .tab-item .item-click0 {
     background: url("../../static/imgas/home-d.png") center no-repeat;
     background-size: contain;
   }
@@ -91,30 +94,36 @@
     background: url("../../static/imgas/dingdan-n.png") center no-repeat;
     background-size: contain;
   }
-  .tab-view .tab-item .item-click1{
+
+  .tab-view .tab-item .item-click1 {
     background: url("../../static/imgas/dingdan-d.png") center no-repeat;
     background-size: contain;
   }
+
   .tab-view .tab-item .item2 {
     width: 0.5rem;
     height: 0.5rem;
     background: url("../../static/imgas/qianbao-n.png") center no-repeat;
     background-size: contain;
   }
-  .tab-view .tab-item .item-click2{
+
+  .tab-view .tab-item .item-click2 {
     background: url("../../static/imgas/qianbao-d.png") center no-repeat;
     background-size: contain;
   }
+
   .tab-view .tab-item .item3 {
     width: 0.5rem;
     height: 0.5rem;
     background: url("../../static/imgas/geren-n.png") center no-repeat;
     background-size: contain;
   }
-  .tab-view .tab-item .item-click3{
+
+  .tab-view .tab-item .item-click3 {
     background: url("../../static/imgas/geren-d.png") center no-repeat;
     background-size: contain;
   }
+
   .tab-view .tab-item p {
     color: #7b7b7b;
     font-size: 0.28rem;
