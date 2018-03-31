@@ -3,7 +3,7 @@
     <div class="home-title">{{title}}</div>
     <UserData class="home-user-data"></UserData>
     <UserBill></UserBill>
-    <div v-for="item in ItemData" @touchend="itemClick(item.title)">
+    <div v-for="item in ItemData" @click="itemClick(item.title)">
       <HomeItem :itemObj="item" ></HomeItem>
     </div>
   </div>

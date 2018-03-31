@@ -1,10 +1,10 @@
 <template>
   <div class="user-bill">
-    <div class="user-buy" @touchend="clickBuy">
+    <div class="user-buy" @click="clickBuy">
       <div></div>
       <p>我购买的</p>
     </div>
-    <div class="user-sell" @touchend="clickSell">
+    <div class="user-sell" @click="clickSell">
       <div></div>
       <p>我出售的</p>
     </div>
