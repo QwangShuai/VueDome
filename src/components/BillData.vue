@@ -1,12 +1,29 @@
 <template>
   <div class="bill-data">
     <div class="bill-tab">
-      <div class="bill-tab-title select">BTC</div>
-      <div class="bill-tab-title">ETH</div>
+      <div class="bill-tab-title" :class="{select:selectTabOne}">BTC</div>
+      <div class="bill-tab-title" :class="{select:selectTabTwo}">ETH</div>
       <div class="bill-tab-line" :style="{left:tagLineLeft+'px'}"></div>
     </div>
     <div class="data-box" @touchstart="TouchStart">
-      <div class="data-left"></div>
+      <div class="data-left">
+        <div class="item-box" v-for="item in leftData">
+          <div class="item-top">
+            <div class="item-src">
+              <div :style="{background: 'url('+item.srcUrl+') center',backgroundSize:'contain'}"></div>
+            </div>
+            <div class="item-data">
+              <div>{{item.name}}<span>{{item.type}}</span></div>
+              <p>{{item.userData}}</p>
+              <p>{{item.creditAmount}}</p>
+            </div>
+          </div>
+          <div class="item-bottom">
+            <p>{{item.amount}}</p>
+            <div>购买</div>
+          </div>
+        </div>
+      </div>
       <div class="data-right"></div>
     </div>
   </div>
@@ -18,6 +35,16 @@
     data() {
       return {
         tagLineLeft: 0,
+        selectTabOne: true,
+        selectTabTwo: false,
+        leftData:[
+          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
+          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
+          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
+          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
+          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
+
+        ]
       }
     },
     methods: {
@@ -41,11 +68,14 @@
         document.ontouchend = function (ev) {
           var oEvent = ev || event;
           var left = yLeft + oEvent.changedTouches[0].clientX - startX;
-          console.log(oEvent.changedTouches[0].clientX - startX);
+          _this.selectTabOne = false;
+          _this.selectTabTwo = false;
           if (left > -tagWidth / 2 && left < 0) {
             left = 0;
+            _this.selectTabOne = true;
           } else if (left <= -tagWidth / 2 && left >= -tagWidth) {
             left = -tagWidth;
+            _this.selectTabTwo = true;
           }
           if (left > 0) {
             left = 0;
@@ -81,6 +111,7 @@
     height: 1rem;
     display: flex;
     position: relative;
+    background-color: #ffffff;
   }
 
   .bill-tab .bill-tab-title {
@@ -117,13 +148,97 @@
 
   .bill-data .data-left {
     width: 7.5rem;
-    height: 3rem;
-    background-color: brown;
+    overflow: scroll;
   }
 
   .bill-data .data-right {
     width: 7.5rem;
-    height: 3rem;
-    background-color: #ff00ff;
+  }
+  .bill-data .item-box{
+    width: 7.5rem;
+    height: 3.0rem;
+    background-color: #ffffff;
+    border-top: solid #ececec 0.2rem;
+  }
+  .bill-data .item-box .item-top{
+    width: 7.5rem;
+    height: 1.5rem;
+    background-color: #ffffff;
+    display: flex;
+  }
+  .bill-data .item-box .item-bottom{
+    width: 7.5rem;
+    height: 1.5rem;
+    background-color: #ffffff;
+    position: relative;
+  }
+  .bill-data .item-box .item-bottom p{
+    position: absolute;
+    top: 0px;
+    right: 0.3rem;
+    color: #00c451;
+    font-size: 0.36rem;
+    font-weight: 600;
+  }
+  .bill-data .item-box .item-bottom div{
+    width: 0.84rem;
+    height: 0.6rem;
+    text-align: center;
+    line-height: 0.6rem;
+    color: #1798f2;
+    border: solid #1798f2 1px;
+    border-radius: 0.1rem;
+    font-size: 0.32rem;
+    position: absolute;
+    right: 0.3rem;
+    bottom: 0.2rem;
+  }
+  .bill-data .item-box .item-top .item-src{
+    width: 2.2rem;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .bill-data .item-box .item-top .item-src div{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+  }
+  .bill-data .item-box .item-top .item-data{
+    height: 100%;
+    flex: 100;
+    background-color:#ffffff;
+    position: relative;
+  }
+  .bill-data .item-box .item-top .item-data p:last-of-type{
+    color: #888888;
+    font-size: 0.26rem;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+  }
+  .bill-data .item-box .item-top .item-data p:first-of-type{
+    color: #888888;
+    font-size: 0.26rem;
+    position: absolute;
+    left: 0px;
+    bottom: 0.4rem;
+  }
+  .bill-data .item-box .item-top .item-data div{
+    color: #333333;
+    font-size: 0.28rem;
+    position: absolute;
+    left: 0px;
+    bottom: 0.8rem;
+  }
+  .bill-data .item-box .item-top .item-data div span{
+    display: inline-block;
+    background-color: #00c451;
+    color: #ffffff;
+    margin-left: 0.2rem;
+    font-size: 0.32rem;
+    padding: 0 0.1rem;
   }
 </style>
