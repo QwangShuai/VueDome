@@ -99,10 +99,6 @@
           var dy = oEvent.touches[0].clientY - startY;
           if (isOne === 0) {
             if (Math.abs(dy) > Math.abs(dx)) {
-              // console.log('suzhi')
-              // tagView.scrollTop=100+'px';//scrollTopTag+dy;
-              // console.log(tagView.scrollTop);
-             // ev.preventDefault();
               console.log('第一次上下滑动')
               isOne = 1;
 
@@ -121,16 +117,12 @@
             }
           } else {
             if (isOne === 1) {
-              // console.log('suzhi')
-              // tagView.scrollTop=100+'px';//scrollTopTag+dy;
-              // console.log(tagView.scrollTop);
-             // ev.preventDefault();
+              if (Math.abs(dx) > Math.abs(dy)) {
+                ev.preventDefault();
+              }
               console.log('第二次上下滑动')
-
-
             } else {
               console.log('第二次左右滑动')
-
               if (left > 0) {
                 left = 0;
               }
