@@ -50,13 +50,16 @@
     methods: {
       TouchStart(ev) {
         var startX = ev.touches[0].clientX;
+        var startY = ev.touches[0].clientY;
         var _this = this;
         var tagView = ev.currentTarget;
         var yLeft = tagView.offsetLeft;
         var tagWidth = tagView.offsetWidth / 2;
+        var isSuzhi=false;
         document.ontouchmove = function (ev) {
           var oEvent = ev || event;
           var left = yLeft + oEvent.touches[0].clientX - startX;
+          var dx=oEvent.touches[0].clientX - startX;
           if (left > 0) {
             left = 0;
           }
@@ -67,6 +70,7 @@
         };
         document.ontouchend = function (ev) {
           var oEvent = ev || event;
+
           var left = yLeft + oEvent.changedTouches[0].clientX - startX;
           _this.selectTabOne = false;
           _this.selectTabTwo = false;
@@ -141,6 +145,7 @@
   .bill-data .data-box {
     width: 15rem;
     position: absolute;
+    height: 11.3rem;
     top: 2.04rem;
     left: 0px;
     display: flex;
