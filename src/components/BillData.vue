@@ -92,7 +92,7 @@
           document.ontouchend = null;
         };
         //阻止浏览器默认行为，防止滑动冲突
-        ev.preventDefault();
+       // ev.preventDefault();
       },
       move(left, tagView) {
         this.tagLineLeft = -(left / 2)
