@@ -37,12 +37,47 @@
         tagLineLeft: 0,
         selectTabOne: true,
         selectTabTwo: false,
-        leftData:[
-          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
-          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
-          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
-          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
-          {srcUrl:'../../static/imgas/deafult-head.jpg',name:'Vue',type:'银行转账',userData:'交易 174 | 好评 99% | 信任91%',creditAmount:'限额 5000-21000 CNY',amount:'46460.92 CNY'},
+        leftData: [
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
 
         ]
       }
@@ -55,21 +90,25 @@
         var tagView = touchEv.currentTarget;
         var yLeft = tagView.offsetLeft;
         var tagWidth = tagView.offsetWidth / 2;
-        var scrollTopTag=tagView.scrollTop;
-        var isOne=0;
+        var scrollTopTag = tagView.scrollTop;
+        var isOne = 0;
         document.ontouchmove = function (ev) {
           var oEvent = ev || event;
           var left = yLeft + oEvent.touches[0].clientX - startX;
-          var dx=oEvent.touches[0].clientX - startX;
-          var dy=oEvent.touches[0].clientY-startY;
-          if (isOne===0) {
+          var dx = oEvent.touches[0].clientX - startX;
+          var dy = oEvent.touches[0].clientY - startY;
+          if (isOne === 0) {
             if (Math.abs(dy) > Math.abs(dx)) {
               // console.log('suzhi')
               // tagView.scrollTop=100+'px';//scrollTopTag+dy;
               // console.log(tagView.scrollTop);
               touchEv.preventDefault();
+              console.log('第一次上下滑动')
+              isOne = 1;
 
             } else {
+              console.log('第一次左右滑动')
+              isOne = 2;
               if (left > 0) {
                 left = 0;
               }
@@ -80,14 +119,18 @@
               //阻止浏览器默认行为，防止滑动冲突
               touchEv.preventDefault();
             }
-          }else {
-            if (isOne===1) {
+          } else {
+            if (isOne === 1) {
               // console.log('suzhi')
               // tagView.scrollTop=100+'px';//scrollTopTag+dy;
               // console.log(tagView.scrollTop);
               touchEv.preventDefault();
+              console.log('第二次上下滑动')
+
 
             } else {
+              console.log('第二次左右滑动')
+
               if (left > 0) {
                 left = 0;
               }
@@ -102,7 +145,7 @@
         };
         document.ontouchend = function (ev) {
           var oEvent = ev || event;
-          isOne=0;
+          isOne = 0;
           var left = yLeft + oEvent.changedTouches[0].clientX - startX;
           _this.selectTabOne = false;
           _this.selectTabTwo = false;
@@ -191,25 +234,29 @@
   .bill-data .data-right {
     width: 7.5rem;
   }
-  .bill-data .item-box{
+
+  .bill-data .item-box {
     width: 7.5rem;
     height: 3.0rem;
     background-color: #ffffff;
     border-top: solid #ececec 0.2rem;
   }
-  .bill-data .item-box .item-top{
+
+  .bill-data .item-box .item-top {
     width: 7.5rem;
     height: 1.5rem;
     background-color: #ffffff;
     display: flex;
   }
-  .bill-data .item-box .item-bottom{
+
+  .bill-data .item-box .item-bottom {
     width: 7.5rem;
     height: 1.5rem;
     background-color: #ffffff;
     position: relative;
   }
-  .bill-data .item-box .item-bottom p{
+
+  .bill-data .item-box .item-bottom p {
     position: absolute;
     top: 0px;
     right: 0.3rem;
@@ -217,7 +264,8 @@
     font-size: 0.36rem;
     font-weight: 600;
   }
-  .bill-data .item-box .item-bottom div{
+
+  .bill-data .item-box .item-bottom div {
     width: 0.84rem;
     height: 0.6rem;
     text-align: center;
@@ -230,7 +278,8 @@
     right: 0.3rem;
     bottom: 0.2rem;
   }
-  .bill-data .item-box .item-top .item-src{
+
+  .bill-data .item-box .item-top .item-src {
     width: 2.2rem;
     height: 100%;
     background-color: #ffffff;
@@ -238,39 +287,45 @@
     justify-content: center;
     align-items: flex-end;
   }
-  .bill-data .item-box .item-top .item-src div{
+
+  .bill-data .item-box .item-top .item-src div {
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 50%;
   }
-  .bill-data .item-box .item-top .item-data{
+
+  .bill-data .item-box .item-top .item-data {
     height: 100%;
     flex: 100;
-    background-color:#ffffff;
+    background-color: #ffffff;
     position: relative;
   }
-  .bill-data .item-box .item-top .item-data p:last-of-type{
+
+  .bill-data .item-box .item-top .item-data p:last-of-type {
     color: #888888;
     font-size: 0.26rem;
     position: absolute;
     left: 0px;
     bottom: 0px;
   }
-  .bill-data .item-box .item-top .item-data p:first-of-type{
+
+  .bill-data .item-box .item-top .item-data p:first-of-type {
     color: #888888;
     font-size: 0.26rem;
     position: absolute;
     left: 0px;
     bottom: 0.4rem;
   }
-  .bill-data .item-box .item-top .item-data div{
+
+  .bill-data .item-box .item-top .item-data div {
     color: #333333;
     font-size: 0.28rem;
     position: absolute;
     left: 0px;
     bottom: 0.8rem;
   }
-  .bill-data .item-box .item-top .item-data div span{
+
+  .bill-data .item-box .item-top .item-data div span {
     display: inline-block;
     background-color: #00c451;
     color: #ffffff;
