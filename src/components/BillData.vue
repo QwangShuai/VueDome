@@ -63,20 +63,21 @@
           var left = yLeft + oEvent.touches[0].clientX - startX;
           var dx=oEvent.touches[0].clientX - startX;
           var dy=oEvent.touches[0].clientY-startY;
-          // if (Math.abs(dy)>Math.abs(dx)){
-          //   console.log('suzhi')
-          //   tagView.scrollTop=100+'px';//scrollTopTag+dy;
-          //   console.log(tagView.scrollTop);
-          // }
-          if (left > 0) {
-            left = 0;
+          if (Math.abs(dy)>Math.abs(dx)){
+            // console.log('suzhi')
+            // tagView.scrollTop=100+'px';//scrollTopTag+dy;
+            // console.log(tagView.scrollTop);
+          }else {
+            if (left > 0) {
+              left = 0;
+            }
+            if (left < -tagWidth) {
+              left = -tagWidth;
+            }
+            _this.move(left, tagView);
+            //阻止浏览器默认行为，防止滑动冲突
+            oEvent.preventDefault();
           }
-          if (left < -tagWidth) {
-            left = -tagWidth;
-          }
-          _this.move(left, tagView);
-          //阻止浏览器默认行为，防止滑动冲突
-          oEvent.preventDefault();
         };
         document.ontouchend = function (ev) {
           var oEvent = ev || event;
