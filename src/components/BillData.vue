@@ -83,11 +83,11 @@
       }
     },
     methods: {
-      TouchStart(touchEv) {
-        var startX = touchEv.touches[0].clientX;
-        var startY = touchEv.touches[0].clientY;
+      TouchStart(ev) {
+        var startX = ev.touches[0].clientX;
+        var startY = ev.touches[0].clientY;
         var _this = this;
-        var tagView = touchEv.currentTarget;
+        var tagView = ev.currentTarget;
         var yLeft = tagView.offsetLeft;
         var tagWidth = tagView.offsetWidth / 2;
         var scrollTopTag = tagView.scrollTop;
@@ -102,7 +102,7 @@
               // console.log('suzhi')
               // tagView.scrollTop=100+'px';//scrollTopTag+dy;
               // console.log(tagView.scrollTop);
-              touchEv.preventDefault();
+             // ev.preventDefault();
               console.log('第一次上下滑动')
               isOne = 1;
 
@@ -117,14 +117,14 @@
               }
               _this.move(left, tagView);
               //阻止浏览器默认行为，防止滑动冲突
-              touchEv.preventDefault();
+              ev.preventDefault();
             }
           } else {
             if (isOne === 1) {
               // console.log('suzhi')
               // tagView.scrollTop=100+'px';//scrollTopTag+dy;
               // console.log(tagView.scrollTop);
-              touchEv.preventDefault();
+             // ev.preventDefault();
               console.log('第二次上下滑动')
 
 
@@ -139,7 +139,7 @@
               }
               _this.move(left, tagView);
               //阻止浏览器默认行为，防止滑动冲突
-              touchEv.preventDefault();
+              ev.preventDefault();
             }
           }
         };
