@@ -7,7 +7,7 @@
     </div>
     <div class="data-box" @touchstart="TouchStart">
       <div class="data-left">
-        <div class="item-box" v-for="item in leftData">
+        <div class="item-box" v-for="(item,index) in leftData" :class="{largebottom:index===leftData.length-1}">
           <div class="item-top">
             <div class="item-src">
               <div :style="{background: 'url('+item.srcUrl+') center',backgroundSize:'contain'}"></div>
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="data-right">
-        <div class="item-box" v-for="item in rightData">
+        <div class="item-box" v-for="(item,index) in rightData" :class="{largebottom:index===leftData.length-1}">
           <div class="item-top">
             <div class="item-src">
               <div :style="{background: 'url('+item.srcUrl+') center',backgroundSize:'contain'}"></div>
@@ -282,12 +282,10 @@
     width: 7.5rem;
     overflow: scroll;
   }
-  .bill-data .data-left .item-box:last-of-type{
+  .largebottom{
     border-bottom: solid #ececec 1.4rem;
   }
-  .bill-data .data-right .item-box:last-of-type{
-    border-bottom: solid #ececec 1.4rem;
-  }
+
   .bill-data .data-right {
     width: 7.5rem;
   }
