@@ -24,7 +24,24 @@
           </div>
         </div>
       </div>
-      <div class="data-right"></div>
+      <div class="data-right">
+        <div class="item-box" v-for="item in rightData">
+          <div class="item-top">
+            <div class="item-src">
+              <div :style="{background: 'url('+item.srcUrl+') center',backgroundSize:'contain'}"></div>
+            </div>
+            <div class="item-data">
+              <div>{{item.name}}<span>{{item.type}}</span></div>
+              <p>{{item.userData}}</p>
+              <p>{{item.creditAmount}}</p>
+            </div>
+          </div>
+          <div class="item-bottom">
+            <p>{{item.amount}}</p>
+            <div>购买</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,6 +55,49 @@
         selectTabOne: true,
         selectTabTwo: false,
         leftData: [
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: '../../static/imgas/deafult-head.jpg',
+            name: 'Vue',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+
+        ],
+        rightData: [
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
             name: 'Vue',
@@ -222,7 +282,9 @@
     width: 7.5rem;
     overflow: scroll;
   }
-
+  .bill-data .item-box:last-of-type{
+    border-bottom: solid #ececec 1.4rem;
+  }
   .bill-data .data-right {
     width: 7.5rem;
   }
