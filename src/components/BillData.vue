@@ -55,11 +55,19 @@
         var tagView = ev.currentTarget;
         var yLeft = tagView.offsetLeft;
         var tagWidth = tagView.offsetWidth / 2;
+        var scrollTopTag=tagView.scrollTop;
+        console.log(scrollTopTag);
         var isSuzhi=false;
         document.ontouchmove = function (ev) {
           var oEvent = ev || event;
           var left = yLeft + oEvent.touches[0].clientX - startX;
           var dx=oEvent.touches[0].clientX - startX;
+          var dy=oEvent.touches[0].clientY-startY;
+          // if (Math.abs(dy)>Math.abs(dx)){
+          //   console.log('suzhi')
+          //   tagView.scrollTop=100+'px';//scrollTopTag+dy;
+          //   console.log(tagView.scrollTop);
+          // }
           if (left > 0) {
             left = 0;
           }
@@ -67,6 +75,8 @@
             left = -tagWidth;
           }
           _this.move(left, tagView);
+          //阻止浏览器默认行为，防止滑动冲突
+          oEvent.preventDefault();
         };
         document.ontouchend = function (ev) {
           var oEvent = ev || event;
@@ -91,8 +101,7 @@
           document.ontouchmove = null;
           document.ontouchend = null;
         };
-        //阻止浏览器默认行为，防止滑动冲突
-       // ev.preventDefault();
+
       },
       move(left, tagView) {
         this.tagLineLeft = -(left / 2)
@@ -149,6 +158,7 @@
     top: 2.04rem;
     left: 0px;
     display: flex;
+    overflow: scroll;
   }
 
   .bill-data .data-left {
