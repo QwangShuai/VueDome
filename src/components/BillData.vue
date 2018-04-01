@@ -57,7 +57,7 @@
         leftData: [
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue0',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -65,7 +65,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue2',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -73,7 +73,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue3',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -81,7 +81,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue4',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -89,7 +89,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue5',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -100,7 +100,7 @@
         rightData: [
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue6',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -108,7 +108,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue7',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -116,7 +116,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue8',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -124,7 +124,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue9',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -132,7 +132,7 @@
           },
           {
             srcUrl: '../../static/imgas/deafult-head.jpg',
-            name: 'Vue',
+            name: 'Vue10',
             type: '银行转账',
             userData: '交易 174 | 好评 99% | 信任91%',
             creditAmount: '限额 5000-21000 CNY',
@@ -271,7 +271,7 @@
   .bill-data .data-box {
     width: 15rem;
     position: absolute;
-    height: 11.3rem;
+    height: 11.4rem;
     top: 2.04rem;
     left: 0px;
     display: flex;
@@ -282,7 +282,10 @@
     width: 7.5rem;
     overflow: scroll;
   }
-  .bill-data .item-box:last-of-type{
+  .bill-data .data-left .item-box:last-of-type{
+    border-bottom: solid #ececec 1.4rem;
+  }
+  .bill-data .data-right .item-box:last-of-type{
     border-bottom: solid #ececec 1.4rem;
   }
   .bill-data .data-right {
