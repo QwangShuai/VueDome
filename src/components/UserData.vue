@@ -1,7 +1,7 @@
 <template>
   <div class="user-data">
     <div class="box">
-      <img class="head-img" :src="person.headImg" onerror="this.src='../../static/imgas/deafult-head.jpg'">
+      <img class="head-img" :src="person.headImg" onerror="this.src='./static/imgas/deafult-head.jpg'">
       <div class="data">
         <p>{{person.name}}</p>
         <span>{{person.dt}}</span>
@@ -16,7 +16,7 @@
     data() {
       return {
         person:{
-          headImg:'../../static/imgas/user-head.jpg',
+          headImg:'./static/imgas/user-head.jpg',
           name:'Vue',
           dt:'交易 174 | 好评 99% | 信任91%'
         }

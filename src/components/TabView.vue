@@ -1,6 +1,6 @@
 <template>
   <div class="tab-view">
-    <div class="tab-item" v-for="(item,position) in items" @touchend="itemClick(position)" :index="position">
+    <div class="tab-item" v-for="(item,position) in items" @touchend.stop="itemClick(position)" :index="position">
       <div :class="[item.className,item.isClick ? item.dclassName : '']"></div>
       <p :class="{'is_click': item.isClick }">{{item.name}}</p>
     </div>
@@ -21,7 +21,7 @@
       }
     },
     methods: {
-      itemClick(position) {
+      itemClick(position,ev) {
         this.items.forEach(function (obj) {
           obj.isClick = 0;
         });
@@ -42,6 +42,7 @@
             break;
         }
       }
+
     },
     mounted: function () {
       var route = this.$route.path;

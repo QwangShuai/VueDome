@@ -1,6 +1,6 @@
 <template>
     <div class="home-item" :class="{smollborder:itemObj.smollBorder,lagerborder:itemObj.lagerBorder}">
-      <div class="icon" :style="{background: 'url('+itemObj.srcUrl+') center',backgroundSize:'contain'}"></div>
+      <div class="icon" :style="{background: 'url('+itemObj.srcUrl+') center no-repeat',backgroundSize:'contain'}"></div>
       <p>{{itemObj.title}}</p>
       <div class="arrow"></div>
       <div class="line" :class="{none:!itemObj.line}"></div>

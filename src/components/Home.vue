@@ -25,15 +25,15 @@
       return {
         title: '我的',
         ItemData: [
-          {title: '我的广告', srcUrl: '../../static/imgas/meiyuan.png', line: true, smollBorder: true, lagerBorder: false},
-          {title: '受信任的', srcUrl: '../../static/imgas/baohu.png', line: false, smollBorder: false, lagerBorder: false},
-          {title: '礼品中心', srcUrl: '../../static/imgas/lipin.png', line: true, smollBorder: true, lagerBorder: false},
-          {title: '邀请好友', srcUrl: '../../static/imgas/haoyou.png', line: false, smollBorder: false, lagerBorder: false},
-          {title: '设置', srcUrl: '../../static/imgas/shezhi.png', line: true, smollBorder: true, lagerBorder: false},
-          {title: '建议反馈', srcUrl: '../../static/imgas/yijian.png', line: true, smollBorder: false, lagerBorder: false},
-          {title: '关于我们', srcUrl: '../../static/imgas/guanyu.png', line: true, smollBorder: false, lagerBorder: false},
-          {title: '客服中心', srcUrl: '../../static/imgas/kefu.png', line: true, smollBorder: false, lagerBorder: false},
-          {title: '退出', srcUrl: '../../static/imgas/tuichu.png', line: false, smollBorder: false, lagerBorder: true}
+          {title: '我的广告', srcUrl: './static/imgas/meiyuan.png', line: true, smollBorder: true, lagerBorder: false},
+          {title: '受信任的', srcUrl: './static/imgas/baohu.png', line: false, smollBorder: false, lagerBorder: false},
+          {title: '礼品中心', srcUrl: './static/imgas/lipin.png', line: true, smollBorder: true, lagerBorder: false},
+          {title: '邀请好友', srcUrl: './static/imgas/haoyou.png', line: false, smollBorder: false, lagerBorder: false},
+          {title: '设置', srcUrl: './static/imgas/shezhi.png', line: true, smollBorder: true, lagerBorder: false},
+          {title: '建议反馈', srcUrl: './static/imgas/yijian.png', line: true, smollBorder: false, lagerBorder: false},
+          {title: '关于我们', srcUrl: './static/imgas/guanyu.png', line: true, smollBorder: false, lagerBorder: false},
+          {title: '客服中心', srcUrl: './static/imgas/kefu.png', line: true, smollBorder: false, lagerBorder: false},
+          {title: '退出', srcUrl: './static/imgas/tuichu.png', line: false, smollBorder: false, lagerBorder: true}
         ]
       }
     },
