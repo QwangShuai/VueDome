@@ -1,11 +1,11 @@
 <template>
   <div class="bill-data">
     <div class="bill-tab">
-      <div class="bill-tab-title" :class="{select:selectTabOne}">BTC</div>
-      <div class="bill-tab-title" :class="{select:selectTabTwo}">ETH</div>
+      <div class="bill-tab-title" :class="{select:selectTabOne}" @click="tabClick(1)">BTC</div>
+      <div class="bill-tab-title" :class="{select:selectTabTwo}" @click="tabClick(2)">ETH</div>
       <div class="bill-tab-line" :style="{left:tagLineLeft+'px'}"></div>
     </div>
-    <div class="data-box" @touchstart="TouchStart">
+    <div class="data-box" ref="dataBox" @touchstart="TouchStart">
       <div class="data-left">
         <div class="item-box" v-for="(item,index) in leftData" :class="{largebottom:index===leftData.length-1}">
           <div class="item-top">
@@ -20,12 +20,12 @@
           </div>
           <div class="item-bottom">
             <p>{{item.amount}}</p>
-            <div>购买</div>
+            <div @click="goBuy(item.name)">购买</div>
           </div>
         </div>
       </div>
       <div class="data-right">
-        <div class="item-box" v-for="(item,index) in rightData" :class="{largebottom:index===leftData.length-1}">
+        <div class="item-box" v-for="(item,index) in rightData" :class="{largebottom:index===rightData.length-1}">
           <div class="item-top">
             <div class="item-src">
               <div :style="{background: 'url('+item.srcUrl+') center',backgroundSize:'contain'}"></div>
@@ -38,7 +38,7 @@
           </div>
           <div class="item-bottom">
             <p>{{item.amount}}</p>
-            <div>购买</div>
+            <div @click="goBuy(item.name)">购买</div>
           </div>
         </div>
       </div>
@@ -138,6 +138,22 @@
             creditAmount: '限额 5000-21000 CNY',
             amount: '46460.92 CNY'
           },
+          {
+            srcUrl: './static/imgas/deafult-head.jpg',
+            name: 'Vue11',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
+          {
+            srcUrl: './static/imgas/deafult-head.jpg',
+            name: 'Vue12',
+            type: '银行转账',
+            userData: '交易 174 | 好评 99% | 信任91%',
+            creditAmount: '限额 5000-21000 CNY',
+            amount: '46460.92 CNY'
+          },
 
         ]
       }
@@ -210,9 +226,11 @@
           }
           if (left > 0) {
             left = 0;
+            _this.selectTabOne = true;
           }
           if (left < -tagWidth) {
             left = -tagWidth;
+            _this.selectTabTwo = true;
           }
           _this.move(left, tagView);
           document.ontouchmove = null;
@@ -224,6 +242,21 @@
         this.tagLineLeft = -(left / 2)
         tagView.style.left = left + 'px';
         //tagView.firstChild.scrollTop=0;
+      },
+      goBuy(name) {
+        alert(name);
+      },
+      tabClick(type) {
+        if (type === 1) {
+          this.move(0, this.$refs.dataBox);
+          this.selectTabOne = true;
+          this.selectTabTwo = false;
+        } else {
+          var tagWidth = this.$refs.dataBox.offsetWidth / 2;
+          this.move(-tagWidth, this.$refs.dataBox);
+          this.selectTabTwo = true;
+          this.selectTabOne = false;
+        }
       }
     }
   }
@@ -283,7 +316,8 @@
     overflow: scroll;
     height: 11.4rem;
   }
-  .largebottom{
+
+  .largebottom {
     border-bottom: solid #ececec 1.4rem;
   }
 
