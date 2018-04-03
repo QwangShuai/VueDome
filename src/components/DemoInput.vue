@@ -1,26 +1,21 @@
 <template>
   <div class="wallet">
-    <DemoInput @connect="getText"></DemoInput>
-    {{msg}}
+    <input type="text" v-model="text" @input="setText">
   </div>
 </template>
 
 <script>
-  import DemoInput from './DemoInput.vue'
   export default {
-    name: 'Wallet',
-    components:{
-      DemoInput,
-    },
+    name: 'DemoInput',
     data () {
       return {
-        msg: ''
+        text: 'username'
       }
     },
     methods:{
-      getText(msg){
-        this.msg=msg;
-      }
+      setText(){
+        this.$emit('connect',this.text);
+      },
     }
   }
 </script>

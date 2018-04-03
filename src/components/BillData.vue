@@ -47,6 +47,7 @@
 </template>
 
 <script>
+  import ss from '../../static/js/common.js'
   export default {
     name: "BillData",
     data() {
@@ -157,6 +158,9 @@
 
         ]
       }
+    },
+    mounted:function () {
+
     },
     methods: {
       TouchStart(ev) {
